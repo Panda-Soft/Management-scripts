@@ -1,0 +1,26 @@
+Found on https://github.com/Panda-Soft/
+
+
+###
+List all GPO in domain:
+###
+powershell Import-Module grouppolicy;get-gpo -All ^| ft DisplayName > GPOList.txt
+start GPOList.txt
+
+###
+Show all services on remote server that are started automatically and are not running
+###
+set /P comp_name=Please enter computer name: 
+wmic /node:%comp_name% SERVICE where (state!="running" AND StartMode="Auto") GET caption, name, state
+
+###
+Show updating view of top CPU processes and ones that have over 2GB of ram usage
+###
+set /P comp_name=Please enter computer name: 
+:check_top_cpu_load_loop_l
+cls
+wmic /node:%comp_name% path Win32_PerfFormattedData_PerfProc_Process where "PercentProcessorTime>'1' OR WorkingSet>'268435456'" get Name,PercentProcessorTime,WorkingSet
+ping 0 -n 2 >nul
+goto check_top_cpu_load_loop_l
+
+
