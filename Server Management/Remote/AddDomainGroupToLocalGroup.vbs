@@ -1,3 +1,8 @@
+' Found on https://github.com/Panda-Soft/
+'
+' Adds group in domain to local group on server.
+' See code for syntax.
+'
 if wscript.arguments.count > 0 then
 WScript.Echo WScript.Arguments.Item(0) & ": Adding " & WScript.Arguments.Item(1) & " to " & WScript.Arguments.Item(2)
 Dim LocalAdminGroup
