@@ -1,3 +1,5 @@
+Found on https://github.com/Panda-Soft/
+
 ###
 List deleted users (no AD module required! uses only ADSI)
 ###
